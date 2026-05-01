@@ -1,0 +1,812 @@
+/* ============================================
+   GLOBAL RESETS & BASE STYLES
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+
+  /* Typography scale */
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 3rem;
+
+  /* Colors */
+  --color-text-primary: #333;
+  --color-text-secondary: #666;
+  --color-link: #4f75ff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Roboto';
+  overflow-x: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ============================================
+   MAIN SECTION (Hero)
+   ============================================ */
+.main-section {
+  background-color: #ffffff;
+  background-image: linear-gradient(to bottom, #DEE8FF, #ffffff, #ffffff);
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-section .info-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: 100%;
+  padding: var(--space-md);
+}
+
+.description {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.description .title {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.description .sub-title {
+  font-size: clamp(1.125rem, 3vw, 2rem);
+  font-weight: 500;
+  margin: var(--space-sm) 0 0;
+  line-height: 1.4;
+}
+
+.google-play-badge {
+  cursor: pointer;
+  /* margin-top: var(--space-md); */
+  margin-top: -0.5rem;
+  margin-left: -0.5rem;
+  z-index: 2;
+}
+
+.google-play-badge img {
+  width: clamp(8rem, 40vw, 18rem);
+  height: auto;
+  display: block;
+}
+
+.main-image {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+  flex: 1;
+  min-height: 60vh;
+}
+
+.main-image img {
+  width: 110%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ============================================
+   SECONDARY SECTION (Features)
+   ============================================ */
+.secondary-section {
+  background-color: #ffffff;
+  /* background-image: linear-gradient(to top, #ffffff 5%, #dcdcdc, #ffffff, #dfe9f3); */
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff, #DEE8FF);
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Desktop view container (hidden on mobile) */
+#info-container-desktop {
+  display: none;
+}
+
+/* Mobile view container (visible on mobile by default) */
+#info-container-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+  padding: var(--space-md);
+  margin-bottom: var(--space-xl);
+  position: relative;
+}
+
+.view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.view {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.view .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 500;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.view .title h1 {
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  font-weight: 500;
+  margin: 0 0 var(--space-xs);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.view .title p,
+.view p {
+  font-size: clamp(0.875rem, 2vw, 1.25rem);
+  margin: 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.view img {
+  margin-right: var(--space-xs);
+  width: clamp(0.875rem, 3vw, 1.875rem);
+  height: auto;
+  flex-shrink: 0;
+}
+
+.title-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.title-icon h1 {
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  text-align: center;
+  margin: 0;
+}
+
+.title-icon img {
+  width: clamp(0.875rem, 3vw, 1.875rem);
+  height: auto;
+}
+
+#desktop-image {
+  height: auto;
+  max-height: 60vh;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+#phone-image {
+  height: auto;
+  max-height: 60vh;
+  width: auto;
+  max-width: 85%;
+  object-fit: contain;
+  z-index: 2;
+  margin-right: 3rem;
+}
+
+/* Navigation arrows (for mobile carousel) */
+.previous,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(50%);
+  width: auto;
+  color: var(--color-link);
+  font-weight: bold;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  transition: 0.3s ease;
+  border-radius: 0.25rem;
+  user-select: none;
+  padding: var(--space-xs);
+  z-index: 3;
+}
+
+.previous {
+  left: var(--space-sm);
+}
+
+.next {
+  right: var(--space-sm);
+}
+
+.previous:hover,
+.next:hover {
+  opacity: 0.7;
+}
+
+/* Icon containers (for desktop) */
+.icon-map,
+.icon-message,
+.icon-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============================================
+   FOOTER (Flexbox sticky footer)
+   ============================================ */
+.footer {
+  margin-top: auto;
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.footer .info {
+  margin: 0;
+  padding: var(--space-md) var(--space-sm);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.footer .info span {
+  font-size: clamp(0.875rem, 2vw, 1.25rem);
+  font-weight: 500;
+}
+
+.footer .info a {
+  text-decoration: none;
+  color: inherit;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer .info a:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.footer img {
+  width: 100%;
+  height: auto;
+  display: block;
+  min-height: 80px;
+}
+
+/* ============================================
+   MEDIA QUERIES - MOBILE FIRST
+   ============================================ */
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) {
+  .main-section {
+    min-height: 100vh;
+  }
+
+  .main-section .info-container {
+    align-items: center;
+    text-align: center;
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .description .title {
+    font-size: clamp(1.5rem, 7vw, 2.375rem);
+  }
+
+  .description .sub-title {
+    font-size: clamp(1.125rem, 4vw, 1.375rem);
+  }
+
+  .google-play-badge img {
+    width: clamp(7rem, 45vw, 8rem);
+  }
+
+  .main-image {
+    min-height: 70vh;
+  }
+
+  .main-image img {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  #info-container-mobile {
+    padding: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  #phone-image {
+    max-height: 50vh;
+  }
+
+  .view .title h1 {
+    font-size: clamp(1.125rem, 4vw, 1.375rem);
+  }
+
+  .view .title p,
+  .view p {
+    font-size: clamp(0.875rem, 3vw, 1.125rem);
+  }
+
+  .title-icon img {
+    width: clamp(1.125rem, 2.5vw, 0.875rem);
+    height: auto;
+  }
+
+  /* Make map icon specifically smaller and move it up slightly */
+  .title-icon img[src*="map.svg"] {
+    width: clamp(0.5rem, 2vw, 0.75rem);
+    height: auto;
+    transform: translateY(-4px);
+  }
+
+  .footer .info {
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: var(--space-sm);
+    gap: var(--space-xs);
+  }
+
+  .footer .info span {
+    font-size: clamp(0.75rem, 3vw, 0.9375rem);
+  }
+
+  .footer img {
+    min-height: 100px;
+  }
+}
+
+/* Small devices (landscape phones) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .main-section .info-container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .description .title {
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+  }
+
+  .description .sub-title {
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+  }
+
+  .google-play-badge img {
+    width: clamp(8rem, 35vw, 11rem);
+  }
+
+  .main-image {
+    min-height: 65vh;
+  }
+
+  .main-image img {
+    width: 95%;
+  }
+
+  #info-container-mobile {
+    padding: var(--space-md);
+  }
+
+  #phone-image {
+    max-height: 55vh;
+  }
+
+  .footer .info {
+    flex-direction: column;
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .footer .info span {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+
+  .title-icon img {
+    width: clamp(1.125rem, 2.5vw, 1rem);
+    height: auto;
+  }
+
+  /* Make map icon specifically smaller and move it up slightly */
+  .title-icon img[src*="map.svg"] {
+    width: clamp(0.625rem, 2vw, 0.875rem);
+    height: auto;
+    transform: translateY(-4px);
+  }
+}
+
+/* Tablets (portrait) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .main-section .info-container {
+    align-items: flex-start;
+    text-align: left;
+    padding-left: var(--space-lg);
+    padding-top: 7rem;
+  }
+
+  .description .title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+  }
+
+  .description .sub-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+
+  .google-play-badge {
+    align-self: flex-start;
+    margin-left: -0.8rem;
+  }
+
+  .google-play-badge img {
+    width: clamp(11rem, 32vw, 14rem);
+  }
+
+  .main-image {
+    min-height: 60vh;
+  }
+
+  .main-image img {
+    width: 85%;
+  }
+
+  #info-container-mobile {
+    padding: var(--space-lg);
+  }
+
+  #phone-image {
+    max-height: 50vh;
+  }
+
+  .view .title h1 {
+    font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  }
+
+  .view .title p,
+  .view p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+  }
+
+  .view img {
+    width: clamp(1.125rem, 2.5vw, 1.5rem);
+  }
+
+  .title-icon img {
+    width: clamp(1.5rem, 2.5vw, 1rem);
+    height: auto;
+  }
+
+  /* Make map icon specifically smaller and move it up slightly */
+  .title-icon img[src*="map.svg"] {
+    width: clamp(0.625rem, 2vw, 0.875rem);
+    height: auto;
+    transform: translateY(-4px);
+  }
+
+  .previous,
+  .next {
+    top: 40%;
+  }
+
+  .footer .info span {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+  }
+}
+
+/* Small desktops / large tablets (landscape) */
+@media (min-width: 992px) {
+  .main-section .info-container {
+    align-items: flex-start;
+    text-align: left;
+    padding-left: var(--space-xl);
+    margin-top: 10rem;
+  }
+
+  .description .title {
+    font-size: clamp(2.25rem, 3.5vw, 3rem);
+  }
+
+  .description .sub-title {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+  }
+
+  .google-play-badge {
+    margin-left: -1rem;
+  }
+
+  .google-play-badge img {
+    width: clamp(12rem, 18vw, 16rem);
+  }
+
+  .main-image img {
+    width: 90%;
+    /* max-width: 900px; */
+    margin-top: 13rem;
+  }
+
+  /* Switch to desktop layout */
+  #info-container-mobile {
+    display: none;
+  }
+
+  #info-container-desktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+    /* padding: var(--space-xl) var(--space-md); */
+    /* gap: var(--space-lg); */
+  }
+
+  #info-container-desktop .view-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 35%;
+    max-width: 45%;
+    gap: 28px;
+  }
+
+  #info-container-desktop #desktop-image {
+    max-height: 70vh;
+    max-width: 580px;
+    margin-top: 8rem;
+  }
+
+  .view {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+
+  #info-container-desktop .view {
+    border: 2px solid transparent;
+    border-radius: 1.5rem;
+    padding: 20px;
+  }
+
+  #info-container-desktop .view.selected {
+    border-color: #9ca3af;
+    background-color: #ffffff;
+    transition: none;
+  }
+
+  .view .title {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .view .title h1 {
+    text-align: left;
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  }
+
+  .view .title p,
+  .view p {
+    text-align: left;
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+  }
+
+  .view img {
+    width: clamp(1.5rem, 2vw, 1.875rem);
+    margin-right: var(--space-sm);
+  }
+
+  .icon-map,
+  .icon-message,
+  .icon-status {
+    /* margin-top: var(--space-sm);
+    margin-left: var(--space-md); */
+  }
+
+  .icon-map img,
+  .icon-message img,
+  .icon-status img {
+    width: clamp(1.5rem, 2vw, 1.875rem);
+    height: clamp(1.5rem, 2vw, 1.875rem);
+    object-fit: contain;
+  }
+
+  /* Hide navigation arrows on desktop */
+  .previous,
+  .next {
+    display: none;
+  }
+
+  .footer .info {
+    flex-direction: row;
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .footer .info span {
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+  }
+}
+
+/* Medium desktops */
+@media (min-width: 1200px) {
+  .main-section .info-container {
+    /* padding-left: clamp(3rem, 5vw, 4rem); */
+    margin-top: 8rem;
+  }
+
+  .description .title {
+    font-size: clamp(2.5rem, 3vw, 3rem);
+  }
+
+  .description .sub-title {
+    font-size: clamp(1.75rem, 2vw, 2rem);
+  }
+
+  #info-container-desktop .view-container {
+    min-width: 30%;
+    max-width: 40%;
+  }
+
+  #info-container-desktop #desktop-image {
+    max-height: 70vh;
+    max-width: 580px;
+    margin-top: 8rem;
+  }
+
+  .view .title h1 {
+    font-size: clamp(1.375rem, 1.5vw, 1.5rem);
+  }
+
+  .view .title p,
+  .view p {
+    font-size: clamp(1.125rem, 1.2vw, 1.25rem);
+  }
+}
+
+/* Large desktops */
+@media (min-width: 1440px) {
+  .main-section .info-container {
+    margin-top: 12rem;
+  }
+
+  .main-image {
+    min-height: 50vh;
+  }
+
+  .main-image img {
+    /* width: auto;
+    max-height: 100vh;
+    margin-top: 5rem; */
+
+
+    width: auto;
+    max-height: 95vh;
+    margin-top: 0rem;
+  }
+
+  #info-container-desktop {
+    /* padding: var(--space-2xl) var(--space-xl); */
+  }
+
+  #info-container-desktop .view-container {
+    min-width: 25%;
+    max-width: 35%;
+    margin-top: 3rem;
+    gap: 28px;
+  }
+
+  #info-container-desktop #desktop-image {
+    max-height: 70vh;
+    max-width: 600px;
+    /* margin-top: 17rem; */
+  }
+
+  .view .title h1 {
+    font-size: 1.5rem;
+  }
+
+  .view .title p,
+  .view p {
+    font-size: 1.25rem;
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1920px) {
+
+  .main-section .info-container,
+  #info-container-desktop {
+    /* max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto; */
+  }
+}
+
+/* Landscape orientation on small screens */
+@media (max-width: 767.98px) and (orientation: landscape) {
+  .main-section {
+    min-height: auto;
+  }
+
+  .main-image {
+    min-height: 50vh;
+  }
+
+  #info-container-mobile {
+    margin-bottom: var(--space-md);
+  }
+
+  #phone-image {
+    max-height: 40vh;
+  }
+}
+
+/* Print styles */
+@media print {
+
+  .footer,
+  .google-play-badge,
+  .previous,
+  .next {
+    display: none;
+  }
+
+  body {
+    min-height: auto;
+  }
+
+  .main-section,
+  .secondary-section {
+    min-height: auto;
+    page-break-inside: avoid;
+  }
+}

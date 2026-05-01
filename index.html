@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofia Parking</title>
+    <link rel="icon" type="image/svg" href="../../assets/logo/parking-logo.svg">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <section class="main-section">
+        <div class="info-container">
+            <div class="description">
+                <h2 class="title">Sofia Parking</h2>
+                <p class="sub-title">Лесният начин за паркиране в София</p>
+            </div>
+            <div class="google-play-badge" onclick="openGooglePlayStore()">
+                <img src="assets/images/main-section/google-play-badge.svg" alt="image">
+            </div>
+        </div>
+        <div class="main-image">
+            <img src="assets/images/main-section/city-life.svg" alt="image">
+        </div>
+    </section>
+    <section class="secondary-section">
+        <div id="info-container-desktop">
+            <div class="view-container">
+                <div id="map" class="view" onclick="changeView(PhoneImages.MAP)">
+                    <div class="icon-map">
+                        <img src="assets/images/secondary-section/map.svg" alt="image">
+                    </div>
+                    <div class="title">
+                        <h1>Автоматично определяне на зона</h1>
+                        <p>
+                            Винаги знаеш дали си в зона с платено паркиране
+                        </p>
+                    </div>
+                </div>
+                <div id="message" class="view" onclick="changeView(PhoneImages.MESSAGE)">
+                    <div class="icon-message">
+                        <img src="assets/images/secondary-section/message.svg" alt="image">
+                    </div>
+                    <div class="title">
+                        <h1>Изпращане на SMS</h1>
+                        <p>
+                            Заплати престоя си в синя или зелена зона само с един клик
+                        </p>
+                    </div>
+                </div>
+                <div id="status" class="view" onclick="changeView(PhoneImages.STATUS)">
+                    <div class="icon-status">
+                        <img src="assets/images/secondary-section/status.svg" alt="image">
+                    </div>
+                    <div class="title">
+                        <h1>Статус в реално време</h1>
+                        <p>
+                            Следи и подновявай оставащото време за паркиране в зона
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <img id="desktop-image" alt="image" src="assets/images/secondary-section/map-gps.svg" alt="image">
+        </div>
+        <div id="info-container-mobile">
+            <div class="view-container">
+                <div id="mobile-info" class="view">
+                    <div class="title">
+                        <div class="title-icon">
+                            <img src="" alt="image">
+                            <h1></h1>
+                        </div>
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a class="previous" onclick="previousView()">&#10094;</a>
+            <a class="next" onclick="nextView()">&#10095;</a>
+            <img id="phone-image" src="" alt="image">
+        </div>
+        <div class="footer">
+            <div class="info">
+                <span><b>hello@sofiaparking.app</b></span>
+                <span><a href="privacy-policy/privacy-policy.html" target="_blank"><b>Политика за поверителност</b></a></span>
+                <span><a href="terms-of-use/terms-of-use.html" target="_blank"><b>Условия за ползване</b></a></span>
+            </div>
+            <img src="assets/images/secondary-section/main-footer-wave.svg" alt="image">
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+
+</html>

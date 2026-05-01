@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Roboto';
+  align-items: center;
+  background-color: #ffffff;
+  /* background-image: linear-gradient(to top, #f6f6f6 5%, #ffffff 5%); */
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff, #DEE8FF);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 90%;
+  /* max-width: 900px; */
+  padding: 1.5rem 0 2rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.container h1 {
+  color: #333;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+  padding-bottom: 2rem;
+}
+
+.container p {
+  color: #666;
+  font-size: clamp(0.9375rem, 2vw, 1.5rem);
+  font-weight: 500;
+  text-align: left;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.container p a {
+  word-break: break-all;
+}
+
+.container p.policy-links {
+  word-break: break-all;
+}
+
+/* ----- Mobile (portrait & small) ----- */
+@media (max-width: 575.98px) {
+  body {
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff, #DEE8FF);
+  }
+
+  .container {
+    width: 92%;
+    padding: 1rem 0.5rem 2rem;
+    padding-left: max(1rem, 4%);
+    padding-right: max(1rem, 4%);
+  }
+
+  .container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .container p {
+    font-size: 0.9375rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer .info {
+    height: 65%;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding-bottom: 3%;
+  }
+}
+
+/* ----- Landscape phones ----- */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container {
+    width: 88%;
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .container h1 {
+    font-size: 1.75rem;
+  }
+
+  .container p {
+    font-size: 1rem;
+  }
+}
+
+/* ----- Tablets (portrait & landscape) ----- */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    width: 85%;
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .container h1 {
+    font-size: 2rem;
+  }
+
+  .container p {
+    font-size: 1.0625rem;
+  }
+}
+
+/* ----- Small desktops / large tablets ----- */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container {
+    width: 82%;
+    padding: 1.5rem 0 2rem;
+  }
+
+  .container h1 {
+    font-size: 2.25rem;
+  }
+
+  .container p {
+    font-size: 1.125rem;
+  }
+}
+
+/* ----- Medium desktops ----- */
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+  .container {
+    width: 78%;
+    padding: 2rem 0 2rem;
+  }
+
+  .container h1 {
+    font-size: 2.5rem;
+  }
+
+  .container p {
+    font-size: 1.25rem;
+  }
+}
+
+/* ----- Large desktops ----- */
+@media (min-width: 1440px) {
+  .container {
+    width: 90%;
+    /* max-width: 960px; */
+    padding: 2rem 0 0rem;
+  }
+
+  .container h1 {
+    font-size: 3rem;
+  }
+
+  .container p {
+    font-size: 1.5rem;
+  }
+}

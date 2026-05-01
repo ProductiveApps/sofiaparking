@@ -1,0 +1,212 @@
+/* Base: use rem/relative units for zoom-friendly scaling */
+:root {
+  --container-width: min(90vw, 72rem);
+  --container-padding-inline: clamp(1rem, 4vw, 3rem);
+  --heading-size: clamp(1.5rem, 4vw + 1rem, 3rem);
+  --body-size: clamp(0.9375rem, 1.5vw + 0.75rem, 1.5rem);
+  --section-gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Roboto';
+  align-items: center;
+  background-color: #ffffff;
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff, #DEE8FF);
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.container {
+  width: var(--container-width);
+  max-width: 100%;
+  padding-inline: var(--container-padding-inline);
+  padding-top: clamp(1rem, 3vh, 2.5rem);
+  padding-bottom: clamp(1rem, 3vh, 2.5rem);
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.container h1 {
+  color: #333;
+  font-size: var(--heading-size);
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+  word-wrap: break-word;
+  padding-bottom: 2rem;
+}
+
+.container p {
+  color: #666;
+  font-size: var(--body-size);
+  font-weight: 500;
+  text-align: left;
+  margin: 0 0 var(--section-gap);
+  line-height: 1.5;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.container p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) {
+  body {
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff, #DEE8FF);
+  }
+
+  .container {
+    padding-bottom: clamp(1rem, 3vh, 2rem);
+    padding-inline: clamp(0.75rem, 5vw, 1.25rem);
+  }
+
+  .container h1 {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+  }
+
+  .container p {
+    font-size: clamp(0.875rem, 3.5vw, 1.125rem);
+  }
+
+  .footer .info {
+    height: 65%;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding-bottom: 3%;
+  }
+}
+
+/* Small devices (landscape phones) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  body {
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff, #DEE8FF);
+  }
+
+  .container {
+    padding-bottom: clamp(1rem, 3vh, 2rem);
+    width: min(88vw, 36rem);
+  }
+
+  .container h1 {
+    font-size: clamp(1.5rem, 4vw, 1.875rem);
+  }
+
+  .container p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  body {
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff, #DEE8FF);
+  }
+
+  .container {
+    padding-bottom: clamp(1.5rem, 3vh, 2.5rem);
+    width: min(85vw, 44rem);
+  }
+
+  .container h1 {
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  }
+
+  .container p {
+    font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  }
+}
+
+/* Small desktops / large tablets */
+@media (min-width: 992px) and (max-width: 1199.99px) {
+  .container {
+    padding-bottom: clamp(1.5rem, 3vh, 2.5rem);
+    width: min(82%, 52rem);
+  }
+
+  .container h1 {
+    font-size: clamp(2rem, 2.5vw, 2.5rem);
+  }
+
+  .container p {
+    font-size: clamp(1.125rem, 1.2vw, 1.3125rem);
+  }
+}
+
+/* Medium desktops */
+@media (min-width: 1200px) and (max-width: 1360px) {
+  .container {
+    padding-bottom: clamp(1.5rem, 3vh, 2.5rem);
+    width: min(78%, 60rem);
+  }
+
+  .container h1 {
+    font-size: clamp(2.25rem, 2vw, 2.75rem);
+  }
+
+  .container p {
+    font-size: clamp(1.1875rem, 1vw, 1.375rem);
+  }
+}
+
+/* Large desktops */
+@media (min-width: 1360px) {
+  .container {
+    padding-bottom: clamp(2rem, 3vh, 3rem);
+    width: min(75%, 72rem);
+  }
+
+  .container h1 {
+    font-size: clamp(2.5rem, 1.8vw, 3rem);
+  }
+
+  .container p {
+    font-size: clamp(1.25rem, 0.9vw, 1.5rem);
+  }
+}
+
+/* Zoom / reduced motion: keep layout stable when user zooms or prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .container {
+    padding-bottom: 2rem;
+  }
+}
+
+/* Very narrow viewports (e.g. zoomed in on mobile) */
+@media (max-width: 360px) {
+  .container {
+    padding-inline: 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .container h1 {
+    font-size: 1.25rem;
+  }
+
+  .container p {
+    font-size: 0.875rem;
+  }
+}
+
+/* Orientation: landscape on small screens – reduce bottom padding so content isn’t hidden by footer */
+@media (max-width: 767.98px) and (orientation: landscape) {
+  .container {
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 575.98px) and (orientation: landscape) {
+  .container {
+    padding-bottom: 1rem;
+  }
+}
