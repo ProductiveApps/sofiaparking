@@ -132,7 +132,9 @@ function setMobileViewInfo() {
   phoneImage.src = phoneViews[phoneViewIndex].phoneImageSrc;
 }
 
-function openGooglePlayStore() {}
+function openGooglePlayStore() {
+  window.open('https://play.google.com/store/apps/details?id=com.productiveapps.sofiaparking', '_blank', 'noopener,noreferrer');
+}
 
 function changeView(typeView) {
   const phoneImage = document.querySelector('#info-container-desktop #desktop-image');
